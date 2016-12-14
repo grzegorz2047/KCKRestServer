@@ -12,6 +12,11 @@ public class CommandController {
 
     private final AtomicLong counter = new AtomicLong();
 
+    /**
+     * Metoda pobiera treść komendy, przetwarza ją i wysyła do prologu w formacie rozkaz(A,B,C,[Podnieś,Bombę])
+     * @param command - przyjmuje wartość parametru z url np. localhost:8080/odbieram?komenda=Podnieś bombę
+     * @return json z id oraz z wynikowym rozkazem
+     */
     @RequestMapping("/odbieram")
     public Command command(@RequestParam(value = "komenda", defaultValue = "World") String command) {
 

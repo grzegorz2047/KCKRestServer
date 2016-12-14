@@ -9,6 +9,10 @@ import java.io.IOException;
 @RestController
 public class PrologCommandController {
 
+    /**
+     * Pobiera prologową komendę i wykonuję ją posiłkując się plikiem prolog2.pl np. localhost:8080/pl?komenda=listing
+     * @param command przyjmuje treść polecenia, które zostaje wysłane do prologu
+     */
     @RequestMapping("/pl")
     public void command(@RequestParam(value = "komenda", defaultValue = "listing") String command) {
         CommandExecutor ce = new CommandExecutor();

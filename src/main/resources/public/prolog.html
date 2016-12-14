@@ -24,13 +24,16 @@
     function doFunction() {
         var polecenie = document.getElementsByName("Polecenie")[0].value;
 
+        var finalUrl;
         if (polecenie == "") {
             alert("Musisz podać polecenie");
 
         }
         else {
-            xhttp.open("GET", location.href + 'pl?komenda=' + polecenie, true);
+            finalUrl = location.href + 'pl?komenda=' + polecenie;
+            xhttp.open("GET", finalUrl, true);
             xhttp.send();
+            alert(finalUrl);
             // location.href = location.href + 'odbieram?komenda=' + polecenie;
             /*$.open("http://" + adres + ":8080/odbieram",{komenda: polecenie}, function(data, status){
              //alert("Data: " + data + "\nStatus: " + status);
@@ -39,26 +42,27 @@
         }
     }
 </script>
-    <div style="text-align: center;">
-        <div class="w3-card-4">
-            <div class="w3-container w3-theme w3-card-2">
-                <h1>Aplikacja - Wysyłanie rozkazów do sapera</h1>
-            </div>
-
-            <div class="w3-container w3-text-theme">
-                <ul class="w3-ul w3-border-top">
-                    <li class="w3-theme-l5" style="position:relative">
-                    </li>
-                    <li>
-                        <p>
-                        <h2>
-                            <input type="text" id="Polecenie" name="Polecenie" value="" maxlength="100" title="Polecenie"/>
-                            <input type="submit" value="Wyślij Polecenie" onclick="doFunction()"/>
-                        </h2>
-                    </li>
-                </ul>
-            </div>
+<center>
+    <div class="w3-card-4">
+        <div class="w3-container w3-theme w3-card-2">
+            <h1>Aplikacja - Wysyłanie rozkazów do sapera</h1>
         </div>
-    </div>
+
+        <div class="w3-container w3-text-theme">
+            <ul class="w3-ul w3-border-top">
+                <li class="w3-theme-l5" style="position:relative">
+                </li>
+                <li>
+                    <p>
+                    <h2>
+                        <input type="text" id="Polecenie" name="Polecenie" value="" maxlength="100" title="Polecenie"/>
+                        <input type="submit" value="Wyślij Polecenie" onclick="doFunction()"/>
+                    </h2>
+                </li>
+            </ul>
+        </div>
+
+
+</center>
 </body>
 </html>
