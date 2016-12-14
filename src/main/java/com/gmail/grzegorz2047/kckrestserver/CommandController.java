@@ -1,8 +1,6 @@
-package hello;
+package com.gmail.grzegorz2047.kckrestserver;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.web.bind.annotation.RequestMapping;

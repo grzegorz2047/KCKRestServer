@@ -1,24 +1,22 @@
-package hello;
+package com.gmail.grzegorz2047.kckrestserver;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
-public class PrologCommandController {
+public class StandardPrologCommandController {
 
-    @RequestMapping("/pl")
+    @RequestMapping("/standard")
     public void command(@RequestParam(value = "komenda", defaultValue = "listing") String command) {
         CommandExecutor ce = new CommandExecutor();
         try {
-            ce.consoleCommandExecutor("cmd /c c:\\software\\swiprolog\\bin\\swipl -s prolog2.pl -g \"" + command + ", nl, halt\"");
+            ce.consoleCommandExecutor("cmd /c \"c:\\Program Files (x86)\\swipl\\bin\\swipl\" -s prolog2.pl -g \"" + command + ", nl, halt\"");
         } catch (InterruptedException | IOException e) {
             e.printStackTrace();
         }
+        System.out.println("robie ");
     }
 }

@@ -1,4 +1,4 @@
-package hello;
+package com.gmail.grzegorz2047.kckrestserver;
 
 import java.io.BufferedReader;
 import java.io.IOException;
