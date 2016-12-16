@@ -10,7 +10,8 @@ import java.io.IOException;
 public class PrologCommandController {
 
     /**
-     * Pobiera prologową komendę i wykonuję ją posiłkując się plikiem prolog2.pl np. localhost:8080/pl?komenda=listing
+     * Pobiera prologową komendę i wykonuję ją po uzyciu consult prolog2.pl
+     *
      * @param command przyjmuje treść polecenia, które zostaje wysłane do prologu
      */
     @RequestMapping("/pl")
@@ -21,5 +22,6 @@ public class PrologCommandController {
         } catch (InterruptedException | IOException e) {
             e.printStackTrace();
         }
+        System.out.println("Teoretycznie wykonano następującą komendę w prologu: " + command);
     }
 }

@@ -1,6 +1,8 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Content-Type" command="text/html;charset=UTF-8">
+    <meta name="viewport" command="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="w3.css">
     <script src="jquery.min.js"></script>
     <link rel="stylesheet" href="bootstrap.min.css">
@@ -24,20 +26,14 @@
     function doFunction() {
         var polecenie = document.getElementsByName("Polecenie")[0].value;
 
-        var finalUrl;
         if (polecenie == "") {
             alert("Musisz podać polecenie");
 
         }
         else {
-            /*
-             split oddziela adres strony, zeby moc przekierowac poprawnie
-             */
-            finalUrl = location.href.split("/prolog.html")[0] + '/pl?komenda=' + polecenie;
-            alert(finalUrl);
-            xhttp.open("GET", finalUrl, true);
+            xhttp.open("GET", location.href.split("/rozkaz.html")[0] + '/odbieram?komenda=' + polecenie, true);
             xhttp.send();
-
+            alert("Polecenie " + polecenie + " zostalo przekazane do wykonania")
             // location.href = location.href + 'odbieram?komenda=' + polecenie;
             /*$.open("http://" + adres + ":8080/odbieram",{komenda: polecenie}, function(data, status){
              //alert("Data: " + data + "\nStatus: " + status);

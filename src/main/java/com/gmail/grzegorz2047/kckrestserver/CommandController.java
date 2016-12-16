@@ -15,7 +15,7 @@ public class CommandController {
     /**
      * Metoda pobiera treść komendy, przetwarza ją i wysyła do prologu w formacie rozkaz(A,B,C,[Podnieś,Bombę])
      * @param command - przyjmuje wartość parametru z url np. localhost:8080/odbieram?komenda=Podnieś bombę
-     * @return json z id oraz z wynikowym rozkazem
+     * @return json z id rozkazu oraz z wynikowym rozkazem
      */
     @RequestMapping("/odbieram")
     public Command command(@RequestParam(value = "komenda", defaultValue = "World") String command) {
@@ -44,8 +44,9 @@ public class CommandController {
 
         /*return new Command(counter.incrementAndGet(),
                 String.format(template, "rozkaz(A,B,C,[" + finalcommand.toString() + "],[])"));*/
+
         CommandExecutor ce = new CommandExecutor();
-        try {
+         try {
             ce.consoleCommandExecutor("cmd /c c:\\software\\swiprolog\\bin\\swipl -s prolog2.pl -g \"" + toprolog + ", nl, halt\"");
         } catch (InterruptedException | IOException e) {
             e.printStackTrace();

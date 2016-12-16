@@ -1,65 +1,38 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" command="text/html;charset=UTF-8">
+    <meta name="viewport" command="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
     <script src="jquery.min.js"></script>
 </head>
 
 <body>
 <script>
-    /*    var zmienna = location.href.split("/odbieram")[0];
-     alert(zmienna + 'testowanie');
-     if(location.href != zmienna){
-     location.href = zmienna;
-     }*/
-    var xhttp;
-    if (window.XMLHttpRequest) {
-        xhttp = new XMLHttpRequest();
-    } else {
-        // code for IE6, IE5
-        xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    function doFunction() {
-        var polecenie = document.getElementsByName("Polecenie")[0].value;
-
-        if (polecenie == "") {
-            alert("Musisz podać polecenie");
-
+    /*
+     Sprawdza poprawnosc linku i poprawia go
+     */
+    window.onload = function () {
+        var splitted = location.href.split("/");
+        var finalLink = location.href;
+        if (splitted.length > 0) {
+            finalLink = splitted[0];
         }
-        else {
-            xhttp.open("GET", location.href + 'odbieram?komenda=' + polecenie, true);
-            xhttp.send();
-           // location.href = location.href + 'odbieram?komenda=' + polecenie;
-            /*$.open("http://" + adres + ":8080/odbieram",{komenda: polecenie}, function(data, status){
-             //alert("Data: " + data + "\nStatus: " + status);
-             });*/
+        document.getElementById("rozkaz").href = finalLink + 'rozkaz.html';
+        document.getElementById("prolog").href = finalLink + 'prolog.html';
+    };
 
-        }
-    }
 </script>
-<center>
-    <div class="w3-card-4">
-        <div class="w3-container w3-theme w3-card-2">
-            <h1>Aplikacja - Wysyłanie rozkazów do sapera</h1>
-        </div>
-
-        <div class="w3-container w3-text-theme">
-            <ul class="w3-ul w3-border-top">
-                <li class="w3-theme-l5" style="position:relative">
-                </li>
-                <li>
-                    <p>
-                    <h2>
-                        <input type="text" id="Polecenie" name="Polecenie" value="" maxlength="100" title="Polecenie"/>
-                        <input type="submit" value="Wyślij Polecenie" onclick="doFunction()"/>
-                    </h2>
-                </li>
-            </ul>
-        </div>
+<h2 id="center">Wybierz opcję: </h2>
+<br/>
+<div class="text-center">
+    <a id="rozkaz" href="">Wykonaj rozkaz</a>
+    <br/>
+    <a id="prolog" href="">Wykonaj bezpośrednio polecenie w prologu</a>
+</div>
 
 
-</center>
 </body>
 </html>

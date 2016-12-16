@@ -3,18 +3,18 @@ package com.gmail.grzegorz2047.kckrestserver;
 public class Command {
 
     private final long id;
-    private final String content;
+    private final String command;
 
-    public Command(long id, String content) {
+    public Command(long id, String command) {
         this.id = id;
-        this.content = content;
+        this.command = command;
     }
 
     public long getId() {
         return id;
     }
 
-    public String getContent() {
-        return content;
+    public String getCommand() {
+        return command;
     }
 }
